@@ -9,7 +9,6 @@ class Router {
   protected $params = [];
 
   public function __construct() {
-    // echo $_SERVER['REQUEST_URI'];
     $this->prepareURL();
 
     if (file_exists(CONTROLLER. $this->controller.'.php')) {
@@ -19,12 +18,9 @@ class Router {
       } else {
         include VIEW.'error.php';
       }
-      // var_dump($this->controller);
-      // $this->controller->index();
     } else {
       include VIEW.'error.php';
     }
-    // echo $this->controller , '<br>' , $this->action , '<br>', print_r($this->params);
   }
 
   protected function prepareURL() {
@@ -37,7 +33,6 @@ class Router {
       unset( $url[0],$url[1] );
       $this->params = !empty($url) ? array_values($url) : [];
 
-      // var_dump($url);
     }
 
   }

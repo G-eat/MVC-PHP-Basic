@@ -8,7 +8,7 @@ class postController extends Controller {
 
   public function all() {
     $mysql = 'SELECT * FROM blog';
-    $data = $this->pdo = Database::select($mysql);
+    $data = $this->pdo = Post::select($mysql);
 
     $this->view('post\all',[
       'data' => $data
