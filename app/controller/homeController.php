@@ -1,19 +1,16 @@
 <?php
-// include DATABASE . DIRECTORY_SEPARATOR . 'database.php';
 
 /**
  * homeController
  */
 class homeController extends Controller {
-  private $pdo;
 
   public function index($id='') {
-
     if (empty($id)) {
-      include VIEW.'error.php';
+      header("Location: /home/aboutus");
     } else {
       $mysql = 'SELECT * FROM home WHERE id = ?';
-      $data = $this->pdo = Home::select($mysql,$id);
+      $data = Home::select($mysql,$id);
       if (count($data) <= 0) {
         include VIEW.'errorlink.php';
       } else {
@@ -22,14 +19,12 @@ class homeController extends Controller {
         ]);
         $this->view->render();
       }
-
     }
-
   }
 
   public function aboutUs() {
     $mysql = 'SELECT * FROM home';
-    $data = $this->pdo = Home::select($mysql);
+    $data = Home::select($mysql);
 
     $this->view('home\aboutUs',[
       'data' => $data

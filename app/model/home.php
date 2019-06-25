@@ -13,8 +13,8 @@ class Home extends Database {
     } else {
       $query->execute();
     }
-    $datas = $query->fetchAll();
-    return $datas;
+    $data = $query->fetchAll();
+    return $data;
   }
 
   public function delete($mysql , $data = array()) {
@@ -25,9 +25,9 @@ class Home extends Database {
     } else {
       $query->execute();
     }
-    $datas = $query->fetchAll();
+    $data = $query->fetchAll();
     header("Location: /home/aboutus");
-    return $datas;
+    return $data;
   }
 
 }
